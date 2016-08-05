@@ -6,59 +6,79 @@ import java.util.Scanner;
 public class Main {
 
     //initializing new Scanner labeled scanner
-    public static Scanner scanner = new Scanner(System.in);
+    private static Scanner scanner = new Scanner(System.in);
 
     //initializing new HashMap labeled person
     private static HashMap<String, Double> person = new HashMap<>();
 
     //main
     public static void main(String[] args) throws Exception {
-        System.out.println("Welcome! \n Please sign in...");
-
-        /* HashMap = <key, value >
-        adding to HashMap
-         */
-        person.put("Steve", 45.00);
-        person.put("Lisa", 85.00);
-        person.put("Gary", 145.00);
-        person.put("Raymond", 120.00);
+        while (true) {
+            /* HashMap = <key, value >
+            adding to HashMap */
+            person.put("Steve", 45.00);
+            person.put("Lisa", 85.00);
+            person.put("Gary", 145.00);
+            person.put("Raymond", 120.00);
 
 
-        // setting String labeled account to scanner
+            // setting String labeled account to scanner
+            System.out.println("Welcome! \n Please sign in...");
+            String account = scanner.nextLine();
 
-        String account = scanner.nextLine();
+            /* waiting for input must contain valid key entry
+            ... printing welcome message */
 
-        /* waiting for input must contain valid key entry
-        ... printing welcome message
-         */
+            if (person.containsKey(account)) {
+                System.out.println("Hello, " + account);
 
-        if (person.containsKey(account)) {
-            System.out.println("Hello, " + account);
+            } else {
+            /* asking to create new account
+            adding new account to HashMap */
+
+                person.put(account, 100.00);
+                System.out.println("Hello, " + account);
+                continue;
+            }
+
+            /* Showing three options
+            looping options until user cancels
+            HashMap should keep previously-set values when it loops */
+
+            int check = 1;
+            while (check == 1) {
+
+                System.out.println("Please choose an option:");
+                System.out.println(" [ 1 ] Check Balance \n [ 2 ] Withdraw \n [ 3 ]Cancel Transaction ");
+                String option = scanner.nextLine();
+
+                // option 1
+                if (option.equalsIgnoreCase("1")) {
+
+                    System.out.println("Your balance is " + person.get(account));
+                    break;
+
+                }
+
+                // option 2
+                else if (option.equalsIgnoreCase("2")) {
+
+                    System.out.println("Please enter withdraw amount");
+                    String withdrawAmount = scanner.nextLine();
+                    Integer.getInteger(withdrawAmount);
+
+                    System.out.print("Printing... " + withdrawAmount);
+                    break;
+
+                } else if (option.equalsIgnoreCase("3")) {
+                    System.out.println("Transaction canceled.");
+
+                    break;
+                }
+            }
+
+            return;
+
         }
-        /* asking to create new account
-        ... waiting for input
-            setting String labeled newAccount to scanner
-            adding newAccount to HashMap
-          */
-        else {
-            System.out.println("No account found. \nIf Would yo  u like to make a new account, please enter your name.");
-            String newAccount = scanner.nextLine();
-            System.out.println("Hello, " + newAccount);
-            person.put(newAccount, 100.00);
-        }
-        /*
-        Showing screen listing three options
-        looping options until user cancels
-        HashMap should keep previously-set values when it loops
-         */
-
-        }
-
-        }
-
-
-
-
     }
 }
-
