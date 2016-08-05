@@ -1,7 +1,5 @@
 package com.theironyard.charlotte;
 
-import jdk.internal.org.objectweb.asm.tree.analysis.Value;
-
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -23,24 +21,24 @@ public class Main {
 
 
         // setting scanner to String account
+
         String account = scanner.nextLine();
+
         // waiting for in. must contain valid key
-        if (person.containsKey(account));{
-            System.out.println("Hello, " + account + " \n Choose an option...");
+
+        if (person.containsKey(account)) {
+            System.out.println("Hello, " + account);
+        }
+        // asking to create new account
+        else {
+            System.out.println("No account found. \nIf Would yo  u like to make a new account, please enter your name.");
+            String newAccount = scanner.nextLine();
+            System.out.println("Hello, " + newAccount);
+            person.put(newAccount, 100.00);
         }
 
-        System.out.println("[1] Check Balance \n[2] Withdraw \n[3] Cancel");
 
-        String option = scanner.nextLine();
-        if (option == "1") {
-            System.out.println("Your balance is 100.00");
-        }
-
-
-
-
-
-        // Choosing options
 
     }
 }
+
