@@ -56,16 +56,17 @@ public class Main {
 
                     case "1":
 
-                        System.out.println("Your balance is " + person.get(account));
+                        System.out.println( "Your balance is " + person.get(account)) ;
                         continue;
 
                     case "2":
-
-                        System.out.println("Please enter withdraw amount");
-                        Double withdrawAmount = scanner.nextDouble();
-                        person.replace(account, 10.00, (withdrawAmount - withdrawAmount) );
-                        System.out.print("Printing... " + withdrawAmount + " \n Please Remove cash... \n \n");
-                        System.out.println("You have $" + withdrawAmount + " left in your account.");
+                        System.out.println( "Please enter withdraw amount" ) ;
+                        double withdrawAmount = scanner.nextDouble() ;
+                        double currentAmount = person.get(account);
+                        double total = Double.valueOf(currentAmount - withdrawAmount) ;
+                        person.replace( account, total, withdrawAmount ) ;
+                        System.out.print( "Printing... " + withdrawAmount + " \n Please Remove cash... \n \n" ) ;
+                        System.out.println( "You have $" + total + " left in your account." ) ;
                         break;
 
                     case "3":
