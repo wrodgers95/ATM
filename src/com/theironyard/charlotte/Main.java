@@ -17,71 +17,72 @@ public class Main {
 
             /* HashMap = <key, value >
             adding to HashMap */
+
             person.put("Steve", 45.00);
             person.put("Lisa", 85.00);
             person.put("Gary", 145.00);
             person.put("Raymond", 120.00);
 
             // setting String labeled account to scanner
+
             System.out.println("Welcome! \n Please sign in...");
             String account = scanner.nextLine();
 
-            /* waiting for input must contain valid key entry
+            /* waiting for input, if no valid key entry add new <key,value>
             ... printing welcome message */
 
             person.putIfAbsent(account, Math.random() * 100.00);
             System.out.println("Hello, " + account);
 
-
             /* Showing three options
             looping options until user cancels
             HashMap should keep previously-set values when it loops */
 
-            int check = 1;
-            while (check == 1) {
 
-                System.out.println("Please choose an option:");
-                System.out.println(" [ 1 ] Check Balance \n [ 2 ] Withdraw \n [ 3 ] Cancel Transaction ");
+            // initializing int t
+
+            int t = 1;
+            while (t == 1) {
+
+                System.out.println("Choose an option:");
+                System.out.println(" [ 1 ] Check Balance \n [ 2 ] Withdraw \n [ 3 ] Remove Account \n" +
+                        " [ 4 ] Cancel Transaction");
+
                 String option = scanner.nextLine();
 
-                    // option 1
-                if (option.equalsIgnoreCase("1")) {
+                // using switch
 
-                    System.out.println("Your balance is " + person.get(account));
+                switch (option) {
 
+                    case "1":
 
+                        System.out.println("Your balance is " + person.get(account));
+                        continue;
+
+                    case "2":
+
+                        System.out.println("Please enter withdraw amount");
+                        Double withdrawAmount = scanner.nextDouble();
+                        person.replace(account, 10.00, (withdrawAmount - withdrawAmount) );
+                        System.out.print("Printing... " + withdrawAmount + " \n Please Remove cash... \n \n");
+                        System.out.println("You have $" + withdrawAmount + " left in your account.");
+                        break;
+
+                    case "3":
+
+                        System.out.println("To delete you account, enter your name.");
+                        String remove = scanner.nextLine();
+                        person.remove(remove);
+                        t = 2;
+                        break;
+
+                    case "4":
+
+                        System.out.println("\n Transaction canceled. \n \n");
+                        t = 2;
+                        break;
                 }
-
-                    // option 2
-                else if (option.equalsIgnoreCase("2")) {
-
-                    System.out.println("Please enter withdraw amount");
-                    String withdrawAmount = scanner.nextLine();
-                    Integer.getInteger(withdrawAmount);
-
-                    System.out.print("Printing... " + withdrawAmount + "\n");
-
-                    // option 3
-                }
-                else if (option.equalsIgnoreCase("3")){
-                    System.out.println("If you would like to delete you account, enter your name.");
-                    String remove = scanner.nextLine();
-                    person.remove(account);
-
-                }
-
-                // option 4
-                else if (option.equalsIgnoreCase("4")) {
-                    System.out.println("Transaction canceled.");
-                    break;
-
-                }
-                return;
             }
-
-            // returns to while statement
-            return;
-
         }
     }
 }
