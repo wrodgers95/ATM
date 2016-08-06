@@ -61,10 +61,12 @@ public class Main {
 
                     case "2":
                         System.out.println( "Please enter withdraw amount" ) ;
+
                         double withdrawAmount = scanner.nextDouble() ;
                         double currentAmount = person.get(account);
                         double total = Double.valueOf(currentAmount - withdrawAmount) ;
                         person.replace( account, total, withdrawAmount ) ;
+
                         System.out.print( "Printing... " + withdrawAmount + " \n Please Remove cash... \n" ) ;
                         System.out.println( "You have $" + total + " left in your account." ) ;
                         break;
@@ -74,7 +76,6 @@ public class Main {
                         System.out.println("To delete you account, enter your name.");
                         String remove = scanner.nextLine();
                         person.remove(remove);
-                        t = 2;
                         break;
 
                     case "4":
@@ -83,7 +84,7 @@ public class Main {
                         t = 2;
                         break;
                 }
-            }
+            } break;
         }
     }
 }
