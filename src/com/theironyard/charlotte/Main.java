@@ -60,6 +60,7 @@ public class Main {
                         break;
 
                     case "2":
+                        
                         System.out.println( "Please enter withdraw amount" ) ;
 
                         double withdrawAmount = scanner.nextDouble() ;
@@ -84,7 +85,7 @@ public class Main {
                         t = 2;
                         break;
                 }
-            } break;
+            }
         }
     }
 }
