@@ -57,7 +57,7 @@ public class Main {
                     case "1":
 
                         System.out.println( "Your balance is " + person.get(account)) ;
-                        continue;
+                        break;
 
                     case "2":
                         System.out.println( "Please enter withdraw amount" ) ;
@@ -65,9 +65,9 @@ public class Main {
                         double currentAmount = person.get(account);
                         double total = Double.valueOf(currentAmount - withdrawAmount) ;
                         person.replace( account, total, withdrawAmount ) ;
-                        System.out.print( "Printing... " + withdrawAmount + " \n Please Remove cash... \n \n" ) ;
+                        System.out.print( "Printing... " + withdrawAmount + " \n Please Remove cash... \n" ) ;
                         System.out.println( "You have $" + total + " left in your account." ) ;
-                        continue;
+                        break;
 
                     case "3":
 
