@@ -67,7 +67,7 @@ public class Main {
                         person.replace( account, total, withdrawAmount ) ;
                         System.out.print( "Printing... " + withdrawAmount + " \n Please Remove cash... \n \n" ) ;
                         System.out.println( "You have $" + total + " left in your account." ) ;
-                        break;
+                        continue;
 
                     case "3":
 
