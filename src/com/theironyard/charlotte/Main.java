@@ -56,23 +56,22 @@ public class Main {
 
                     case "1":
 
-                        System.out.println( "Your balance is " + person.get(account)) ;
+                        System.out.println( "Your balance is " + person.get(account));
                         break;
 
                     case "2":
 
                         System.out.println( "Please enter withdraw amount" ) ;
-
-                        //double withdrawAmount = scanner.nextDouble() ;
                         String withdrawAmount = scanner.nextLine();
+
                         double wAmount = Double.valueOf(withdrawAmount);
                         double currentAmount = person.get(account);
                         double total = Double.valueOf(currentAmount - wAmount) ;
-                        
-                        //person.replace( account, total, wAmount ) ;
+                        person.replace( account, total ) ;
+
 
                         System.out.print( "Printing... " + withdrawAmount + " \n Please Remove cash... \n" ) ;
-                        System.out.println( "You have $" + total + " left in your account." ) ;
+                        System.out.println( "You have $" + total + " left in your account.\n" ) ;
                         break;
 
                     case "3":
