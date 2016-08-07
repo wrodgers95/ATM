@@ -56,7 +56,7 @@ public class Main {
 
                     case "1":
 
-                        System.out.println( "Your balance is " + person.get(account));
+                        System.out.println( "Your balance is $" + person.get(account) + "\n");
                         break;
 
                     case "2":
@@ -64,13 +64,17 @@ public class Main {
                         System.out.println( "Please enter withdraw amount" ) ;
                         String withdrawAmount = scanner.nextLine();
 
+                        // changing String withdraw amount to double
                         double wAmount = Double.valueOf(withdrawAmount);
+
+                        // pulling value from HashMap and subtracting withdraw from value
                         double currentAmount = person.get(account);
                         double total = Double.valueOf(currentAmount - wAmount) ;
+
+                        //replacing oldValue with newValue
                         person.replace( account, total ) ;
 
-
-                        System.out.print( "Printing... " + withdrawAmount + " \n Please Remove cash... \n" ) ;
+                        System.out.print( "Printing... $" + withdrawAmount + " \n Please Remove cash... \n" ) ;
                         System.out.println( "You have $" + total + " left in your account.\n" ) ;
                         break;
 
